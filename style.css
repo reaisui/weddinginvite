@@ -1,0 +1,172 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Vintage Glamour', serif;
+  background-color: #f5f5f5;
+  color: #333;
+  text-align: center;
+}
+
+.hero {
+  background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHdlZGRpbmd8ZW58MHx8fHwxNjkzNjA3MjM2&ixlib=rb-4.0.3&q=80&w=1080');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+.content {
+  text-align: center;
+  z-index: 1;
+}
+
+.content h1 {
+  font-size: 3rem;
+  font-family: 'Alex Brush', cursive;
+  margin: 0;
+}
+
+.content h2 {
+  font-size: 2.5rem;
+  font-family: 'Alex Brush', cursive;
+  margin: 10px 0;
+}
+
+.content p {
+  font-size: 1.5rem;
+  font-family: 'Hello', sans-serif;
+}
+
+.wedding-date {
+  font-size: 1.2rem;
+  font-family: 'Hello', sans-serif;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.countdown {
+  padding: 50px 20px;
+}
+
+.countdown h2 {
+  font-size: 2rem;
+  font-family: 'Alex Brush', cursive;
+  margin-bottom: 20px;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#timer div {
+  font-size: 1.5rem;
+}
+
+/* Bride and Groom Info */
+.bride-groom-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.groom-info, .bride-info {
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 30%;
+}
+
+.groom-info h3, .bride-info h3 {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2.5rem;
+}
+
+.groom-info p, .bride-info p {
+  font-size: 1.2rem;
+  font-family: 'Hello', sans-serif;
+  margin-bottom: 15px;
+}
+
+.social-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+/* Location Styles */
+.location {
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.location h2 {
+  font-size: 2rem;
+  font-family: 'Alex Brush', cursive;
+  margin-bottom: 10px;
+}
+
+.location p {
+  font-size: 1.2rem;
+  font-family: 'Hello', sans-serif;
+}
+
+.location a {
+  font-family: 'Hello', sans-serif;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Custom Scrollbar */
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+  .content h1 {
+    font-size: 2.5rem;
+  }
+
+  .content h2 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1.2rem;
+  }
+
+  .bride-groom-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .groom-info, .bride-info {
+    width: 80%;
+  }
+
+  .countdown h2, .location h2 {
+    font-size: 1.8rem;
+  }
+
+  #timer div {
+    font-size: 1.2rem;
+  }
+}

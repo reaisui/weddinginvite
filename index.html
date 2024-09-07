@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <!-- Link to Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Hello&family=Vintage+Glamour:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to Font Awesome for Instagram icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/kTcYxKOSEt9poaKZFTMWQYs3mLg5jvv/74qjNiYGMWl6tPL1vNKy0NzNEgFLObP1JzpFfF5Q97ZDA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Import Fonts */
+        body {
+            font-family: 'Vintage Glamour', serif;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Ornamental Decorations */
+        .ornament {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url('https://www.pngall.com/wp-content/uploads/2016/04/Ornament-PNG.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+        }
+
+        .ornament.top-left {
+            top: 10px;
+            left: 10px;
+        }
+
+        .ornament.top-right {
+            top: 10px;
+            right: 10px;
+        }
+
+        .ornament.bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .ornament.bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHdlZGRpbmd8ZW58MHx8fHwxNjkzNjA3MjM2&ixlib=rb-4.0.3&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-family: 'Alex Brush', cursive;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-family: 'Alex Brush', cursive;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-family: 'Hello', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .wedding-date {
+            font-size: 1.2rem;
+            font-family: 'Hello', sans-serif;
+            font-weight: bold;
+        }
+
+        /* Bride and Groom Info */
+        .bride-groom-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .groom-info, .bride-info {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 30%;
+            min-width: 280px;
+            position: relative;
+        }
+
+        .groom-info::before, .bride-info::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background-image: url('https://www.pngall.com/wp-content/uploads/2016/04/Ornament-PNG.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+        }
+
+        .groom-info::before {
+            background-color: transparent;
+        }
+
+        .bride-info::before {
+            background-color: transparent;
+        }
+
+        .groom-info h3, .bride-info h3 {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .groom-info p, .bride-info p {
+            font-size: 1.2rem;
+            font-family: 'Hello', sans-serif;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .groom-info a, .bride-info a {
+            color: #E1306C; /* Instagram Brand Color */
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .groom-info a:hover, .bride-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Countdown Section */
+        .countdown {
+            padding: 4rem 2rem;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .countdown h2 {
+            font-size: 2.5rem;
+            font-family: 'Alex Brush', cursive;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        #timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        #timer div {
+            background-color: #f9f9f9;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        #timer span {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Wedding Location Section */
+        .location {
+            padding: 4rem 2rem;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .location h2 {
+            font-size: 2.5rem;
+            font-family: 'Alex Brush', cursive;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .location p {
+            font-size: 1.2rem;
+            font-family: 'Hello', sans-serif;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .location a {
+            font-family: 'Hello', sans-serif;
+            color: #1D9BF0; /* Google Maps Blue */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .location a:hover {
+            text-decoration: underline;
+        }
+
+        /* Comment Section */
+        .comments {
+            padding: 4rem 2rem;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .comments h2 {
+            font-size: 2.5rem;
+            font-family: 'Alex Brush', cursive;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        /* Footer with Ornaments */
+        .footer {
+            padding: 2rem;
+            background-color: #333;
+            color: #fff;
+            position: relative;
+        }
+
+        .footer p {
+            font-family: 'Hello', sans-serif;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .groom-info, .bride-info {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .bride-groom-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .groom-info, .bride-info {
+                width: 80%;
+            }
+
+            #timer {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .countdown h2, .location h2, .comments h2 {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .groom-info, .bride-info {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ornamental Decorations -->
+    <div class="ornament top-left"></div>
+    <div class="ornament top-right"></div>
+    <div class="ornament bottom-left"></div>
+    <div class="ornament bottom-right"></div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Selamat Datang di Pernikahan Kami</h1>
+            <h2>John & Jane</h2>
+            <p>Bergabunglah dengan kami di hari istimewa kami</p>
+            <p class="wedding-date">31 Desember 2024</p>
+        </div>
+    </div>
+
+    <!-- Bride and Groom Info Section -->
+    <div class="bride-groom-container">
+        <!-- Groom Info Box -->
+        <div class="groom-info">
+            <h3>John Doe</h3>
+            <p>Anak dari Bapak John Doe Sr. dan Ibu Jane Doe</p>
+            <p>Ikuti kami di Instagram:</p>
+            <a href="https://instagram.com/johndoe" target="_blank">
+                <i class="fab fa-instagram"></i> @johndoe
+            </a>
+        </div>
+        <!-- Bride Info Box -->
+        <div class="bride-info">
+            <h3>Jane Smith</h3>
+            <p>Anak dari Bapak Jack Smith dan Ibu Jill Smith</p>
+            <p>Ikuti kami di Instagram:</p>
+            <a href="https://instagram.com/janesmith" target="_blank">
+                <i class="fab fa-instagram"></i> @janesmith
+            </a>
+        </div>
+    </div>
+
+    <!-- Countdown Section -->
+    <div class="countdown">
+        <h2>Hitung Mundur Menuju Hari Besar</h2>
+        <div id="timer">
+            <div><span id="days">0</span> Hari</div>
+            <div><span id="hours">0</span> Jam</div>
+            <div><span id="minutes">0</span> Menit</div>
+            <div><span id="seconds">0</span> Detik</div>
+        </div>
+    </div>
+
+    <!-- Wedding Location Section -->
+    <div class="location">
+        <h2>Lokasi Pernikahan</h2>
+        <p>Jl. Pernikahan No. 123, Kota Bahagia, Indonesia</p>
+        <a href="https://goo.gl/maps/example" target="_blank">Lihat di Google Maps</a>
+    </div>
+
+    <!-- Comment Section -->
+    <div class="comments">
+        <h2>Berikan Komentar</h2>
+        <div id="disqus_thread" class="max-w-4xl mx-auto"></div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 John & Jane. Semua hak dilindungi.</p>
+    </div>
+
+    <!-- Countdown Script -->
+    <script>
+        const countdown = () => {
+            const countDate = new Date("Dec 31, 2024 00:00:00").getTime();
+            const now = new Date().getTime();
+            const gap = countDate - now;
+
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+
+            const textDay = Math.floor(gap / day);
+            const textHour = Math.floor((gap % day) / hour);
+            const textMinute = Math.floor((gap % hour) / minute);
+            const textSecond = Math.floor((gap % minute) / second);
+
+            document.getElementById('days').innerText = textDay;
+            document.getElementById('hours').innerText = textHour;
+            document.getElementById('minutes').innerText = textMinute;
+            document.getElementById('seconds').innerText = textSecond;
+        };
+
+        setInterval(countdown, 1000);
+    </script>
+
+    <!-- Disqus Integration -->
+    <script>
+        var disqus_config = function () {
+            this.page.url = window.location.href;  
+            this.page.identifier = document.title; 
+        };
+        
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://your-disqus-url.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+    <noscript>Mohon aktifkan JavaScript untuk melihat bagian komentar.</noscript>
+
+</body>
+</html>
